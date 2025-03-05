@@ -22,7 +22,11 @@ class MainActivity : AppCompatActivity() {
         binding.viewPager.adapter = NumbersViewPagerAdapter(supportFragmentManager, lifecycle)
 
         tabMediator = TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-            tab.text = "Вкладка ${position + 1}"
+            //tab.text = "Вкладка ${position + 1}"
+            when(position) {
+                0 -> tab.text = "Первая"
+                1 -> tab.text = "Вторая"
+            }
         }
         tabMediator.attach()
     }
